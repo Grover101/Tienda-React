@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'firebase/auth'
-import { useFirebaseApp, useUser } from 'reactfire'
+import { useUser } from 'reactfire'
 
 const Login = (props) => {
 
@@ -9,26 +9,7 @@ const Login = (props) => {
     password: ''
   }
   const [values, setValues] = useState(inicialValues)
-
-  const [error, setError] = useState(false)
-
-  const firebase = useFirebaseApp()
-
   const user = useUser()
-
-  async function login(values) {
-    try {
-      await firebase.auth().signInWithEmailAndPassword(values.email, values.password)
-      setError(false)
-      props.history.replace('/home')
-    } catch (error) {
-      setError(true)
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log("Error: " + error.code + " - " + error.message);
-      console.log(errorCode + " " + errorMessage);
-    }
-  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -38,7 +19,7 @@ const Login = (props) => {
   const handleSubmint = e => {
     e.preventDefault()
     console.log(values);
-    login(values)
+    props.login(values)
   }
 
   return (
@@ -59,7 +40,7 @@ const Login = (props) => {
               </div>
             </div>
             {
-              error &&
+              props.error &&
               <p className="color">Error en el incio de sesion</p>
             }
             <div className="text-center">
@@ -70,7 +51,7 @@ const Login = (props) => {
       }
       {
         user &&
-        props.history.replace('/home')
+        window.location.replace("/home")
       }
     </div>
   )
