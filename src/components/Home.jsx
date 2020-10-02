@@ -43,6 +43,7 @@ const Home = (props) => {
 
     const logout = () => {
         firebase.auth().signOut()
+        window.location.replace("/")
     }
 
     const aniadir = async (compra) => {
@@ -82,18 +83,18 @@ const Home = (props) => {
         <Router>
             <div className="main">
                 <nav className="container contenido-articulo navbar navbar-light bg-light">
-                    <h1 class="navbar-brand">La Bodega</h1>
+                    <h1 className="navbar-brand">La Bodega</h1>
                     <ul className="nav justify-content-end">
                         <Link to="/home" className="nav-link">
-                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <i className="fa fa-th" aria-hidden="true"></i>
                         </Link>
                         <Link to="/carrito" className="nav-link" onClick={getCarrito}>
-                            <i className="fa fa-cart-arrow-down"></i><span class="badge badge-danger">{compras.length !== 0 ? compras.length : ''}</span>
+                            <i className="fa fa-cart-arrow-down"></i><span className="badge badge-danger">{compras.length !== 0 ? compras.length : ''}</span>
                         </Link>
-                        <Link className="nav-link">
-                            <i class="fa fa-inbox" aria-hidden="true"></i>
+                        <Link to="/home" className="nav-link">
+                            <i className="fa fa-inbox" aria-hidden="true"></i>
                         </Link>
-                        <Link to="/" className="nav-link" onClick={logout}>
+                        <Link to="/logout" className="nav-link" onClick={logout}>
                             <i className="fa fa-sign-out" ></i>
                         </Link>
                     </ul>
@@ -109,7 +110,7 @@ const Home = (props) => {
                                     </div>
                                     <div className="col-sm-4 form-group mt-3">
                                         <label htmlFor="buscar">¿Que esta buscando?</label>
-                                        <input type="text" id="buscar" class="form-control" onChange={buscar} placeholder="Buscar producto" />
+                                        <input type="text" id="buscar" className="form-control" onChange={buscar} placeholder="Buscar producto" />
                                     </div>
                                 </div>
                                 <div className="row">
@@ -123,12 +124,12 @@ const Home = (props) => {
                                                         <h4 className="card-title">{producto.Nombre}</h4>
                                                         <p className="card-text">Precio: ${producto.Precio}</p>
                                                         <p className="card-text">Unidad disponible: {producto.UnidadDisponible}</p>
-                                                        <div class="row">
+                                                        <div className="row">
                                                             <div className="col-8">
                                                                 <Link to={"/" + producto.id} className="btn btn-primary btn-sm" onClick={() => { setProducto(producto) }}>Ver Mas</Link>
                                                             </div>
                                                             <div className="col-4">
-                                                                <div class="d-flex justify-content-end">
+                                                                <div className="d-flex justify-content-end">
                                                                     <button className="btn btn-warning btn-sm" onClick={() => { aniadir(producto) }} >Añadir</button>
                                                                     <input type="number" className="form-control form-control-sm" min="0" placeholder="0" onChange={(ev) => { setCantidad(ev.target.value) }} />
                                                                 </div>
@@ -149,12 +150,12 @@ const Home = (props) => {
                                                         <h4 className="card-title">{busc.Nombre}</h4>
                                                         <p className="card-text">Precio: ${busc.Precio}</p>
                                                         <p className="card-text">Unidad disponible: {busc.UnidadDisponible}</p>
-                                                        <div class="row">
+                                                        <div className="row">
                                                             <div className="col-8">
                                                                 <Link to={"/" + busc.id} className="btn btn-primary btn-sm" onClick={() => { setProducto(busc) }}>Ver Mas</Link>
                                                             </div>
                                                             <div className="col-4">
-                                                                <div class="d-flex justify-content-end">
+                                                                <div className="d-flex justify-content-end">
                                                                     <button className="btn btn-warning btn-sm" onClick={() => { aniadir(busc) }} >Añadir</button>
                                                                     <input type="number" className="form-control form-control-sm" min="0" placeholder="0" onChange={(ev) => { setCantidad(ev.target.value) }} />
                                                                 </div>
@@ -208,9 +209,9 @@ const Home = (props) => {
                                     </div>
                                     <div className="col-6">
                                         <h2 className="d-flex justify-content-start">Total: ${total}</h2>
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <Link to="/home" type="button" class="btn btn-light border">Cancelar</Link>
-                                            <Link to="/home" type="button" class="btn btn-light border" onClick={pagarCarrito}>Pagar</Link>
+                                        <div className="btn-group" role="group" aria-label="Basic example">
+                                            <Link to="/home" type="button" className="btn btn-light border">Cancelar</Link>
+                                            <Link to="/home" type="button" className="btn btn-light border" onClick={pagarCarrito}>Pagar</Link>
                                         </div>
                                     </div>
                                 </div>

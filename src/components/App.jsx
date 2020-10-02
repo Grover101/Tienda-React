@@ -10,7 +10,10 @@ import { useFirebaseApp } from 'reactfire'
 export default function App() {
 
     const [error, setError] = useState(false)
+    const [hola, setHola] = useState("hola mundo")
     const firebase = useFirebaseApp()
+
+    //console.log(hola);
 
     async function login(values) {
         try {
@@ -31,7 +34,7 @@ export default function App() {
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Login login={login} error={error} />
+                    <Login login={login} error={error} setHola={setHola} hola={hola} />
                 </Route>
                 {/* <Route exact path='/' component={Login} /> */}
                 <Route exact path='/home' component={Home} />

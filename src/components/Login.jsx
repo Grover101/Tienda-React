@@ -20,6 +20,8 @@ const Login = (props) => {
     e.preventDefault()
     console.log(values);
     props.login(values)
+    props.setHola("hola login")
+    console.log(props.hola);
   }
 
   return (
