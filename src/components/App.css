@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/login-fondo.jpg");
+  background-position: bottom;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Patrick Hand", cursive;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.contenedor {
+  margin: auto;
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input {
+  align-items: center;
+  display: block;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+}
+
+body {
+  background-image: url("../img/main-fondo.jpg");
+  background-position: bottom;
+  background-attachment: fixed;
+  /* height: 500vh; */
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.productos,
+.navbar {
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Patrick Hand", cursive;
+}
+
+.productos {
+  margin-top: 10px;
+}
+
+img {
+  width: 50px;
+}
+
+.color {
+  color: red;
+}
+
+/* .card {
+  width: 18rem;
+} */
