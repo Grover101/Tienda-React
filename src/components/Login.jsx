@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'firebase/auth'
 import { useUser } from 'reactfire'
+import { Redirect } from 'react-router-dom'
 
 const Login = (props) => {
 
@@ -18,10 +19,8 @@ const Login = (props) => {
 
   const handleSubmint = e => {
     e.preventDefault()
-    console.log(values);
+    console.log(values)
     props.login(values)
-    props.setHola("hola login")
-    console.log(props.hola);
   }
 
   return (
@@ -53,7 +52,7 @@ const Login = (props) => {
       }
       {
         user &&
-        window.location.replace("/home")
+        <Redirect to="/home" />
       }
     </div>
   )
